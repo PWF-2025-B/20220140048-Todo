@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Todo;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,7 +25,8 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
 
-        User::factory(100)->create();
-        Todo::factory(500)->create();
+        User::factory(1)->create();
+        Todo::factory(1)->create();
+        Category::factory(10)->create();
     }
 }

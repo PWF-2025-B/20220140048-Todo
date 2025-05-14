@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,7 +22,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/todo/{todo}/complete', [TodoController::class, 'complete'])->name('todo.complete');
     Route::patch('/todo/{todo}/incomplete', [TodoController::class, 'uncomplete'])->name('todo.uncomplete');
     Route::delete('todo/', [TodoController::class, 'destroyCompleted'])->name('todo.deleteallcompleted');
-    Route::resource('todo', TodoController::class)->except(['show']);    
+    Route::resource('todo', TodoController::class)->except(['show']);
+    
+    Route::resource('category', CategoryController::class)->except(['show']);
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
